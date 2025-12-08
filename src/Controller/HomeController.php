@@ -4,6 +4,7 @@ namespace Watson\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeController {
 
@@ -64,6 +65,24 @@ class HomeController {
             'error'         => $app['security.last_error']($request),
             'last_username' => $app['session']->get('_security.last_username'),
             )
+        );
+    }
+
+    /**
+     * rss page controller.
+     *
+     * @param Application $app Silex application
+     */
+    public function indexActionRss(Application $app) {
+        $links = $app['dao.link']->findAll();
+
+        $xml = $app['twig']->render('rss.xml.twig', array('links' => $links));
+
+        return new Response(
+            $xml,
+            200,
+            array('Content-Type' => 'application/rss+xml; charset=UTF-8')
+            // On indique que c'est du XML et pas du HTML sous peine que ça cause des erreurs
         );
     }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Flux RSS - Derniers liens Watson</title>
+        <link>http://localhost:1234/</link>
+        <description>Les 15 derniers liens publiés sur Watson</description>
+
+        {% for link in links %}
+            <item>
+                <title>{{ link.title }}</title>
+                <link>{{ link.url }}</link>
+                <description>{{ link.desc }}</description>
+                <dc:creator>{{ link.user.username }}</dc:creator>
+            </item>
+        {% endfor %}
+
+    </channel>
+</rss>
