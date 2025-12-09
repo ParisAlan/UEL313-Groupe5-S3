@@ -5,17 +5,30 @@
 {% block content %}
 	<div class="row">
 		{% for link in links %}
-			<div class="col-md-4">
-			    <h2><a class="linkTitle" href="{{ path('link', { 'id': link.id }) }}">{{ link.title }}</a></h2>
-			    <p>{{ link.desc }}</p>
-			    <a href="{{ link.url }}" title="" target="_blank">Open ></a>
-			    <em>(by {{ link.user.username }})</em>
+			<div class="col-md-4 mx-2">
+                <div class="card">
+                    <h2>
+                        <a class="linkTitle" href="{{ path('link', { 'id': link.id }) }}">
+                            {{ link.title }}
+                        </a>
+                    </h2>
 
-			    {% for tag in link.tags %}
-			    	<a href="{{ path('tag', { 'id': tag.id }) }}" title="Filtrer">
-			    		{{ tag.title }}
-			    	</a>
-			    {% endfor %}
+                    <div class="bar">
+                        {% for tag in link.tags %}
+                            <a class="linkTag" href="{{ path('tag', { 'id': tag.id }) }}" title="Filtrer">
+                                {{ tag.title }}
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="content">
+                        <p>{{ link.desc }}</p>
+                        <div class="btn-encadrer">
+                            <a class="btn-1" href="{{ link.url }}" target="_blank">Ouvrir dans un nouvel onglet >></a>
+                        </div>
+                        <em>(by {{ link.user.username }})</em>
+                    </div>
+                </div>
 			</div>
 		{% endfor %}
 	</div>

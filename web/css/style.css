@@ -1,5 +1,6 @@
 body { 
-    padding-top: 100px; 
+    padding-top: 100px;
+    background-color: #D0DBE1;
 }
 
 #logo{
@@ -31,4 +32,126 @@ body {
 #errorPanel {
     padding-top: 30px;
     padding-bottom: 10px;
+}
+
+/** RAJOUT CSS **/
+
+.linkTitle {
+    font-size: 2.2rem;
+    align-self: end;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #444447;
+}
+
+.linkTag {
+    background-color: #d4d4d4;
+    color: #494949;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: background 0.3s
+    ease, color 0.3s
+    ease;
+}
+
+.linkTag:hover {
+    transform: scale(1.05);
+    text-decoration: none !important;
+    background: #222222;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+
+.card {
+    padding: 1.5rem 2.5rem;
+    background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
+    border-radius: 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template:
+        "title title"
+        "bar bar"
+        "content content"/ 1fr auto;
+    font-family: system-ui, sans-serif;
+    color: #444447;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 3rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    grid-area: title;
+    align-self: end;
+    text-transform: uppercase;
+    font-weight: 500;
+    word-break: break-all;
+    margin: 0 !important;
+    color: #444447;
+    /*border-bottom: 1px solid #b8adad;*/
+    /*padding-bottom: 8px;*/
+}
+
+.card .content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card p {
+    color: #555;
+}
+
+.card .bar {
+    grid-area: bar;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+.card em {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+#content {
+    padding-top: 3rem;
+}
+
+.btn-encadrer {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.btn-1 {
+    margin-top: auto;
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-1:hover {
+    background: #ff4757;
+    color: #fff !important;
 }
