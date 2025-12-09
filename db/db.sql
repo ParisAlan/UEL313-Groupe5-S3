@@ -50,7 +50,20 @@ CREATE TABLE `tl_liens` (
 INSERT INTO `tl_liens` (`lien_id`, `lien_url`, `lien_titre`, `lien_desc`, `user_id`) VALUES
 (1, 'https://cvtic.unilim.fr/', 'Campus Virtuel TIC', 'Site internet du CvTIC.', 1),
 (2, 'https://duckduckgo.com/', 'Duck Duck Go', 'Le moteur de recherche qui ne trace pas ses utilisateurs.', 1),
-(3, 'https://framasoft.org/', 'Framasoft', 'Un réseau dédié à la promotion du « libre » en général et du logiciel libre en particulier.', 1);
+(3, 'https://framasoft.org/', 'Framasoft', 'Un réseau dédié à la promotion du « libre » en général et du logiciel libre en particulier.', 1),
+(4, 'https://www.mozilla.org/', 'Mozilla', 'Organisation à but non lucratif promotrice d’un web ouvert.', 1),
+(5, 'https://www.gnu.org/', 'GNU Project', 'Projet fondateur du mouvement du logiciel libre.', 1),
+(6, 'https://www.kernel.org/', 'Linux Kernel', 'Site officiel du noyau Linux.', 1),
+(7, 'https://www.blender.org/', 'Blender', 'Suite libre de modélisation, animation et rendu 3D.', 1),
+(8, 'https://gimp.org/', 'GIMP', 'Éditeur d’images libre, alternative à Photoshop.', 1),
+(9, 'https://inkscape.org/', 'Inkscape', 'Éditeur vectoriel libre, alternative à Illustrator.', 1),
+(10, 'https://www.libreoffice.org/', 'LibreOffice', 'Suite bureautique libre et gratuite.', 1),
+(11, 'https://www.openstreetmap.org/', 'OpenStreetMap', 'Carte mondiale collaborative et open-source.', 1),
+(12, 'https://kdenlive.org/', 'Kdenlive', 'Logiciel de montage vidéo open-source.', 1),
+(13, 'https://keepassxc.org/', 'KeePassXC', 'Gestionnaire de mots de passe libre et local.', 1),
+(14, 'https://audacityteam.org/', 'Audacity', 'Éditeur audio libre.', 1),
+(15, 'https://krita.org/', 'Krita', 'Application open-source de peinture numérique.', 1),
+(16, 'https://brave.com/', 'Brave', 'Navigateur open-source axé protection.', 1);
 
 -- --------------------------------------------------------
 
@@ -71,7 +84,8 @@ INSERT INTO `tl_tags` (`tag_id`, `tag_name`) VALUES
 (1, 'fac'),
 (2, 'vieprivee'),
 (3, 'opensource'),
-(4, 'apprendre');
+(4, 'apprendre'),
+(5, 'navigateur');
 
 -- --------------------------------------------------------
 
@@ -92,7 +106,24 @@ INSERT INTO `tl_tags_liens` (`tag_id`, `lien_id`) VALUES
 (1, 1),
 (2, 2),
 (3, 2),
-(3, 3);
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(3, 10),
+(3, 11),
+(3, 12),
+(3, 13),
+(3, 14),
+(3, 15),
+(3, 16),
+(2, 16),
+(5, 16),
+(5, 4),
+(5, 2);
 
 -- --------------------------------------------------------
 

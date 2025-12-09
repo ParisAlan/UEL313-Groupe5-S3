@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"> <!-- Repris du RSS de Cvtic -->
+    <channel>
+        <title>Flux RSS - Derniers liens Watson</title>
+        <link>http://localhost:1234/</link>
+        <description>Les 15 derniers liens publiés sur Watson</description>
+
+        {% for link in links %}
+            <item>
+                <title>{{ link.title }}</title>
+                <link>{{ link.url }}</link>
+                <description>{{ link.desc }}</description>
+                <dc:creator>{{ link.user.username }}</dc:creator>
+                <guid>{{ link.url }}</guid> <!-- https://www.w3schools.com/xml/rss_tag_guid.asp -->
+            </item>
+        {% endfor %}
+
+    </channel>
+</rss>

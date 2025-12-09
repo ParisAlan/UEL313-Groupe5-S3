@@ -4,6 +4,7 @@ namespace Watson\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeController {
 
@@ -64,6 +65,42 @@ class HomeController {
             'error'         => $app['security.last_error']($request),
             'last_username' => $app['session']->get('_security.last_username'),
             )
+        );
+    }
+
+    /**
+     * rss page controller.
+     *
+     * @param Application $app Silex application
+     */
+    public function indexActionRss(Application $app) {
+        $links = $app['dao.link']->findAll();
+
+        // On définit d'avance le nombre max d'articles dans le RSS
+        $objectif = 15;
+
+        // On compte le nombre d'éléments présents dans notre tableau $links
+        $count = count($links); // = 16
+
+        // On va venir compter la différence entre le nombre d'éléments et l'objectif final
+        $difference = $count - $objectif;
+
+        // Tant que nous avons une différence entre le nombre total d'éléments et l'objectif, on en retire pour
+        // arriver à 15 valeurs.
+        while ($difference > 0) {
+            $effaceur = array_pop($links);
+            $difference--;
+        }
+
+        // Penser à transformer avec array_slice ?
+
+        return new Response(
+            $app['twig']->render('rss.xml.twig', array(
+                'links' => $links,
+            )),
+            200,
+            array('Content-Type' => 'application/rss+xml; charset=UTF-8')
+            // On indique que c'est du XML et pas du HTML sous peine que ça cause des erreurs
         );
     }
 }
