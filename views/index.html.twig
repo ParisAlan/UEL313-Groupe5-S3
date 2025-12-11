@@ -24,9 +24,11 @@
                     <div class="content">
                         <p>{{ link.desc }}</p>
                         <div class="btn-encadrer">
-                            <a class="btn-1" href="{{ link.url }}" target="_blank">Ouvrir dans un nouvel onglet >></a>
+                            <a class="btn-1" href="{{ link.url }}" target="_blank">Ouvrir dans un nouvel onglet »</a>
                         </div>
-                        <em>(by {{ link.user.username }})</em>
+                        <em>
+                            <img id="person-emoji" src="https://www.freeiconspng.com/thumbs/person-icon/clipart--person-icon--cliparts-15.png" alt="Emoji Personne">
+                            (by {{ link.user.username }})</em>
                     </div>
                 </div>
 			</div>
