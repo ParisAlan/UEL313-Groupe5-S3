@@ -3,20 +3,51 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+    <div class="row" style="margin-bottom: 20px;">
+        <div class="col-md-12 text-center">
+            <h1>Bienvenue sur Watson</h1>
+            <p class="lead">Votre gestionnaire de liens favoris</p>
+        </div>
+    </div>
+
 	<div class="row">
 		{% for link in links %}
 			<div class="col-md-4">
-			    <h2><a class="linkTitle" href="{{ path('link', { 'id': link.id }) }}">{{ link.title }}</a></h2>
-			    <p>{{ link.desc }}</p>
-			    <a href="{{ link.url }}" title="" target="_blank">Open ></a>
-			    <em>(by {{ link.user.username }})</em>
+                <div class="panel panel-default panel-watson">
+                    
+                    <div class="panel-heading">
+                        <h2 class="panel-title" style="margin-top:0;">
+                            <span class="glyphicon glyphicon-link text-muted"></span> 
+    				        <a class="linkTitle" href="{{ path('link', { 'id': link.id }) }}">{{ link.title }}</a>
+                        </h2>
+                    </div>
 
-			    {% for tag in link.tags %}
-			    	<a href="{{ path('tag', { 'id': tag.id }) }}" title="Filtrer">
-			    		{{ tag.title }}
-			    	</a>
-			    {% endfor %}
-			</div>
+                    <div class="panel-body">
+                        <p>{{ link.desc|length > 100 ? link.desc|slice(0, 100) ~ '...' : link.desc }}</p>
+                        
+                        <div style="margin-top: 15px;">
+                            <a href="{{ link.url }}" class="btn btn-primary btn-sm btn-block" target="_blank">
+                                Visiter le site <span class="glyphicon glyphicon-new-window"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer">
+                        <small class="text-muted">
+                            <span class="glyphicon glyphicon-user"></span> {{ link.user.username }}
+                        </small>
+                        
+                        <div class="pull-right">
+                            {% for tag in link.tags %}
+                                <a href="{{ path('tag', { 'id': tag.id }) }}" class="tag-badge" title="Filtrer">
+                                    {{ tag.title }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                </div>
 		{% endfor %}
 	</div>
 {% endblock %}

@@ -1,5 +1,7 @@
 body { 
-    padding-top: 100px; 
+    padding-top: 100px;
+    /* ajout : couleur de fond gris très clair pour faire ressortir les cartes blanches */
+    background-color: #f4f6f9;
 }
 
 #logo{
@@ -17,6 +19,8 @@ body {
     padding-top: 10px;
     text-align: center;
     margin-top: 30px;
+    /* Ajout : un peu de marge en bas */
+    padding-bottom: 20px;
 }
 
 .articleTitle:hover, .articleTitle:focus {
@@ -31,4 +35,79 @@ body {
 #errorPanel {
     padding-top: 30px;
     padding-bottom: 10px;
+}
+
+/* Ajout : Personnalisation de la barre de navigation (remplace le noir par un bleu nuit) */
+.navbar-inverse {
+    background-color: #2c3e50;
+    border-color: #1a252f;
+}
+.navbar-inverse .navbar-brand {
+    color: #ecf0f1;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #bdc3c7;
+}
+
+/* Ajout : Style des articles */
+.panel-watson {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Ombre douce */
+    transition: all 0.3s ease; /* Animation fluide */
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Ajout : Effet quand la souris passe sur une carte (elle remonte un peu) */
+.panel-watson:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.panel-watson .panel-heading {
+    background-color: transparent;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+}
+
+.panel-watson .linkTitle {
+    color: #2c3e50;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.panel-watson .panel-body {
+    padding: 15px;
+    color: #7f8c8d;
+    height: 120px; /* Hauteur fixe pour aligner les cartes */
+    overflow: hidden; /* Cache le texte s'il est trop long */
+}
+
+.panel-watson .panel-footer {
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0;
+    padding: 10px 15px;
+}
+
+/* Ajout : Style des Tags (badges colorés) */
+.tag-badge {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.tag-badge:hover {
+    background-color: #2980b9; /* Bleu plus foncé au survol */
+    color: white;
+    text-decoration: none;
 }

@@ -85,7 +85,7 @@ class HomeController {
         // On va venir compter la différence entre le nombre d'éléments et l'objectif final
         $difference = $count - $objectif;
 
-        // tant que nous avons une différence entre le nombre total d'éléments et l'objectif, on en retire pour
+        // Tant que nous avons une différence entre le nombre total d'éléments et l'objectif, on en retire pour
         // arriver à 15 valeurs.
         while ($difference > 0) {
             $effaceur = array_pop($links);
