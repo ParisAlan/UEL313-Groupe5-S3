@@ -113,4 +113,38 @@
         {% endif %}
     </div>
 </div>
+
+<div class="pagination">
+
+    {% if currentPage > 1 %}
+        <a href="{{ path('admin') }}?page={{ currentPage - 1 }}"><< Précedent</a>
+    {% endif %}
+
+    {% for p in 1..totalPages %}
+        {% if p == currentPage %}
+            <strong>[{{ p }}]</strong>
+        {% else %}
+            <a href="{{ path('admin') }}?page={{ p }}">{{ p }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if currentPage < totalPages %}
+        <a href="{{ path('admin') }}?page={{ currentPage + 1 }}">Suivant >></a>
+    {% endif %}
+</div>
+
+<style>
+.pagination a {
+    padding: 5px;
+    margin: 3px;
+    border: 1px solid #ddd;
+}
+
+.pagination strong {
+    padding: 5px;
+    margin: 3px;
+    font-weight: bold;
+    color: red;
+}
+</style>
 {% endblock %}
