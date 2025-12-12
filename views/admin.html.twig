@@ -4,7 +4,7 @@
 {% block title %}Administration{% endblock %}
 
 {% block content %}
-<h2 class="text-center">{{ block('title') }}</h2>
+<h2 id="admintitle" class="text-center">{{ block('title') }}</h2>
 {% for flashMessage in app.session.flashbag.get('success') %}
 <div class="alert alert-success">
     {{ flashMessage }}
@@ -13,8 +13,12 @@
 <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a href="#links" data-toggle="tab">Links</a></li>
-            <li><a href="#users" data-toggle="tab">Users</a></li>
+            <li class="active">
+                <a class="first-link" href="#links" data-toggle="tab">Links</a>
+            </li>
+            <li>
+                <a class="second-link" href="#users" data-toggle="tab">Users</a>
+            </li>
         </ul>
     </div>
 </div>
@@ -66,6 +70,23 @@
         {% else %}
         <div class="alert alert-warning">No links found.</div>
         {% endif %}
+        <div class="pagination">
+            {% if currentPage > 1 %}
+                <a href="{{ path('admin') }}?page={{ currentPage - 1 }}"><< Précedent</a>
+            {% endif %}
+
+            {% for p in 1..totalPages %}
+                {% if p == currentPage %}
+                    <strong>{{ p }}</strong>
+                {% else %}
+                    <a href="{{ path('admin') }}?page={{ p }}">{{ p }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if currentPage < totalPages %}
+                <a href="{{ path('admin') }}?page={{ currentPage + 1 }}">Suivant >></a>
+            {% endif %}
+        </div>
     </div>
 
     <div class="tab-pane fade adminTable" id="users">
