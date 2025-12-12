@@ -157,6 +157,46 @@ class LinkDAO extends DAO
         return $link;
     }
 
+    
+    /**
+ * Retourne les liens avec pagination.
+ * $limit = combien de liens par page
+ * $offset = à partir de où on commence (ex : page 2 commence à 15, etc.)
+ */
+public function findAllPaginated($limit, $offset) {
+    $sql = "
+        SELECT *
+        FROM tl_liens
+        ORDER BY lien_id DESC
+        LIMIT ? OFFSET ?
+    ";
+    $result = $this->getDb()->fetchAll($sql, array($limit, $offset));
+
+    $links = array();
+    foreach ($result as $row) {
+        $linkId         = $row['lien_id'];
+        $links[$linkId] = $this->buildDomainObject($row);
+    }
+    return $links;
+}
+
+
+
+
+
+/** Pour compter combien il y a de liens total (utile pour calculer le nombre de pages) */
+public function countAll() {
+    $sql = "SELECT COUNT(*) AS total FROM tl_liens";
+    $row = $this->getDb()->fetchAssoc($sql);
+    return $row['total'];
+}
+
+
+
+
+
+
+    
     /**
      * Removes all links for a user
      *
