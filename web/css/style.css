@@ -98,7 +98,7 @@ a:hover {
 
 .card {
     padding: 1.5rem 2.5rem;
-    background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
+    background-color: white;
     border-radius: 2rem;
     display: grid;
     gap: 1rem;
@@ -294,3 +294,48 @@ a:hover {
     color: orange;
     font-weight: bold;
 }
+
+/****************************************************************************************
+    CSS PAGE ADMIN.HTML.TWIG => PAGINATION
+*****************************************************************************************/
+
+ .pagination {
+     display: flex;
+     padding-left: 0;
+     margin: 20px 0;
+     border-radius: 4px;
+     flex-direction: row;
+     justify-content: center;
+ }
+
+.pagination a {
+    background-color: #d4d4d4;
+    color: #494949;
+    border-radius: 12px;
+    font-weight: 600;
+    margin-top: auto;
+    padding: 9px 12px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.pagination a:hover {
+    transform: scale(1.05);
+    text-decoration: none !important;
+    background: #333333;
+    color: #fff;
+}
+
+.pagination strong {
+    margin-top: auto;
+    padding: 9px 12px;
+    background: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 10px;
+}
+

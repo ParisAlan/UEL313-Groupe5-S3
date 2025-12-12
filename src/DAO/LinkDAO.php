@@ -169,6 +169,7 @@ class LinkDAO extends DAO
             ORDER BY lien_id DESC
             LIMIT $limit OFFSET $offset
         ";
+
         $result = $this->getDb()->fetchAll($sql);
 
         $links = array();
