@@ -22,6 +22,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ path('rss') }}"><span class="glyphicon glyphicon-cog"></span> Flux RSS</a></li>
                         {% if app.user and is_granted('ROLE_ADMIN') %}
                             <li class="{% if adminMenu is defined %}active{% endif %}"><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
                         {% endif %}
